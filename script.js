@@ -23,14 +23,8 @@ function addTask() {
     label.innerHTML = `
         <input type="checkbox" onchange="toggleTask(this)">
         <span>${taskText}</span>
-        <button onclick="deleteTask(this)">Delete</button>
     `;
 
     taskList.appendChild(label);
-
     input.value = "";
-}
-
-function deleteTask(button) {
-    button.parentElement.remove();
 }
