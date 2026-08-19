@@ -19,16 +19,14 @@ function toggleTask(checkbox) {
 }
 
 function addTask() {
-    const input = document.getElementById("taskInput");
     const taskList = document.getElementById("taskList");
 
     const task = document.createElement("label");
 
     task.innerHTML = `
-        <input type="checkbox" onchange="toggleTask(this)">
-        <span>${input.value}</span>
+        <input type="checkbox">
+        <input type="text" placeholder="Type your task here...">
     `;
 
     taskList.appendChild(task);
-    input.value = "";
 }
