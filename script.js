@@ -7,3 +7,14 @@ function toggleTask(checkbox) {
         task.style.textDecoration = "none";
     }
 }
+function addTask() {
+    const input = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    const task = document.createElement("label");
+    task.textContent = input.value;
+
+    taskList.appendChild(task);
+
+    input.value = "";
+}
