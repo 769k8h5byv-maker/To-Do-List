@@ -14,3 +14,6 @@ label {
     padding: 10px;
     cursor: pointer;
 }
+label:has(input:checked) span {
+    text-decoration: line-through;
+}
