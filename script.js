@@ -20,8 +20,11 @@ function addTask() {
     const label = document.createElement("label");
 
     label.innerHTML = `
-        <input type="checkbox" onchange="toggleTask(this)">
-        <span>${taskText}</span>
+        label.innerHTML = `
+    <input type="checkbox" onchange="toggleTask(this)">
+    <span>${taskText}</span>
+    <button onclick="deleteTask(this)">Delete</button>
+`;
     `;
 
     taskList.appendChild(label);
