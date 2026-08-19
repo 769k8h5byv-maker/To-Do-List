@@ -13,7 +13,7 @@ function addTask() {
 
     const task = document.createElement("label");
   task.innerHTML = `
-    <input type="checkbox">
+   <input type="checkbox" onchange="toggleTask(this)">
     <span>${input.value}</span>
 `;
 
