@@ -14,7 +14,9 @@ function addTask() {
     if (taskText === "") {
         return;
     }
-
+function deleteTask(button) {
+    button.parentElement.remove();
+}
     const taskList = document.getElementById("taskList");
 
     const label = document.createElement("label");
