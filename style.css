@@ -2,8 +2,10 @@ body {
     font-family: Arial, sans-serif;
     max-width: 600px;
     margin: 50px auto;
-    padding: 30px;
+    padding: 35px;
     background: #f4f1ea;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
