@@ -21,3 +21,12 @@ function addTask() {
 
     input.value = "";
 }
+const today = new Date();
+
+document.getElementById("date").textContent =
+    today.toLocaleDateString("en-CA", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
