@@ -12,7 +12,10 @@ function addTask() {
     const taskList = document.getElementById("taskList");
 
     const task = document.createElement("label");
-    task.textContent = input.value;
+  task.innerHTML = `
+    <input type="checkbox">
+    <span>${input.value}</span>
+`;
 
     taskList.appendChild(task);
 
