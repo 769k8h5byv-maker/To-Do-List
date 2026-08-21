@@ -8,25 +8,30 @@ document.getElementById("date").textContent =
         day: "numeric"
     });
 
-function toggleTask(checkbox) {
-    const task = checkbox.nextElementSibling;
-
-    if (checkbox.checked) {
-        task.style.textDecoration = "line-through";
-    } else {
-        task.style.textDecoration = "none";
-    }
-}
-
 function addTask() {
     const taskList = document.getElementById("taskList");
 
     const task = document.createElement("label");
 
     task.innerHTML = `
-        <input type="checkbox">
+        <input type="checkbox" onchange="toggleTask(this)">
         <input type="text" placeholder="Type your task here...">
+        <button onclick="deleteTask(this)">Delete</button>
     `;
 
     taskList.appendChild(task);
+}
+
+function toggleTask(checkbox) {
+    const taskText = checkbox.nextElementSibling;
+
+    if (checkbox.checked) {
+        taskText.style.textDecoration = "line-through";
+    } else {
+        taskText.style.textDecoration = "none";
+    }
+}
+
+function deleteTask(button) {
+    button.parentElement.remove();
 }
