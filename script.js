@@ -16,22 +16,18 @@ function addTask() {
 
     task.innerHTML = `
         <input type="checkbox" onchange="toggleTask(this)">
-        <input type="text" class="taskText" placeholder="Type your task here...">
+        <input 
+            type="text" 
+            class="taskText" 
+            placeholder="Type your task here..."
+            onkeydown="if (event.key === 'Enter') { event.preventDefault(); acceptTask(this.nextElementSibling); }"
+        >
         <button onclick="acceptTask(this)">Accept</button>
     `;
 
     taskList.appendChild(task);
 
-    const textBox = task.querySelector(".taskText");
-
-    textBox.focus();
-
-    textBox.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            acceptTask(task.querySelector("button"));
-        }
-    });
+    task.querySelector(".taskText").focus();
 }
 
 
