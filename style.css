@@ -48,6 +48,7 @@ body {
     color: #666;
 
     font-size: 14px;
+
     font-weight: 600;
 
     white-space: nowrap;
@@ -67,6 +68,7 @@ body {
 
 .listTab.activeTab {
     background: #596f82;
+
     color: white;
 }
 
@@ -91,6 +93,7 @@ body {
 
 .addTab {
     width: 42px;
+
     height: 38px;
 
     padding: 0;
@@ -100,123 +103,6 @@ body {
     background: white;
 
     cursor: pointer;
-}
-
-
-/* POPUP PANELS */
-
-.popupPanel {
-    display: none;
-
-    background: white;
-
-    padding: 20px;
-
-    margin: 5px 0 20px;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-
-.popupPanel.show {
-    display: block;
-
-    animation: slideDown 0.18s ease-out;
-}
-
-
-@keyframes slideDown {
-
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-.popupPanel h3 {
-    margin: 0 0 12px;
-
-    font-size: 20px;
-}
-
-
-.popupPanel p {
-    margin: 0 0 18px;
-
-    color: #666;
-
-    line-height: 1.4;
-}
-
-
-#newListInput {
-    width: 100%;
-
-    padding: 13px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 11px;
-
-    outline: none;
-
-    font-family: inherit;
-
-    font-size: 16px;
-}
-
-
-#newListInput:focus {
-    border-color: #596f82;
-}
-
-
-.popupButtons {
-    display: flex;
-
-    justify-content: flex-end;
-
-    gap: 8px;
-
-    margin-top: 15px;
-}
-
-
-.popupButtons button {
-    border: none;
-
-    border-radius: 10px;
-
-    padding: 10px 15px;
-
-    font-size: 14px;
-
-    font-weight: 600;
-}
-
-
-#cancelNewList,
-#cancelDelete {
-    background: #eee;
-
-    color: #555;
-}
-
-
-#createNewList,
-#confirmDelete {
-    background: #596f82;
-
-    color: white;
 }
 
 
@@ -321,6 +207,8 @@ h1 {
     font-weight: 600;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
 }
 
 
@@ -406,6 +294,8 @@ label button {
     font-weight: 600;
 
     white-space: nowrap;
+
+    cursor: pointer;
 }
 
 
@@ -442,9 +332,5 @@ label button {
 
     label button {
         padding: 8px 7px;
-    }
-
-    .popupPanel {
-        padding: 17px;
     }
 }
