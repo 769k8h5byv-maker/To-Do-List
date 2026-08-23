@@ -9,6 +9,60 @@ document.getElementById("date").textContent =
     });
 
 
+function editListTitle() {
+    const title = document.getElementById("listTitle");
+    const button = document.getElementById("editTitleButton");
+
+    const input = document.createElement("input");
+
+    input.type = "text";
+    input.id = "listTitleInput";
+    input.value = title.textContent;
+
+    title.replaceWith(input);
+
+    input.focus();
+    input.select();
+
+    button.textContent = "✓";
+
+    input.onkeydown = function(event) {
+        if (event.key === "Enter") {
+            saveListTitle();
+        }
+    };
+
+    button.onclick = saveListTitle;
+}
+
+
+function saveListTitle() {
+    const input = document.getElementById("listTitleInput");
+
+    if (!input) {
+        return;
+    }
+
+    const newTitle = input.value.trim();
+
+    if (newTitle === "") {
+        return;
+    }
+
+    const title = document.createElement("h1");
+
+    title.id = "listTitle";
+    title.textContent = newTitle;
+
+    input.replaceWith(title);
+
+    const button = document.getElementById("editTitleButton");
+
+    button.textContent = "✎";
+    button.onclick = editListTitle;
+}
+
+
 function addTask() {
     const taskList = document.getElementById("taskList");
 
@@ -42,13 +96,16 @@ function acceptTask(button) {
     textBox.readOnly = true;
 
     button.textContent = "Edit";
-    button.onclick = function () {
+
+    button.onclick = function() {
         editTask(this);
     };
 
     const deleteButton = document.createElement("button");
+
     deleteButton.textContent = "Delete";
-    deleteButton.onclick = function () {
+
+    deleteButton.onclick = function() {
         deleteTask(this);
     };
 
@@ -64,7 +121,8 @@ function editTask(button) {
     textBox.focus();
 
     button.textContent = "Accept";
-    button.onclick = function () {
+
+    button.onclick = function() {
         acceptTask(this);
     };
 }
