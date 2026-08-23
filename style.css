@@ -36,12 +36,12 @@ body {
     display: none;
 }
 
-#tabs button {
+
+.listTab,
+.addTab {
     flex-shrink: 0;
 
     border: none;
-
-    padding: 10px 15px;
 
     border-radius: 20px;
 
@@ -55,19 +55,52 @@ body {
     white-space: nowrap;
 }
 
-#tabs button.activeTab {
+
+.listTab {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 14px;
+}
+
+
+.listTab.activeTab {
     background: #596f82;
     color: white;
 }
 
-#tabs button.addTab {
+
+.deleteTab {
+    font-size: 17px;
+    font-weight: normal;
+
+    opacity: 0.6;
+
+    cursor: pointer;
+
+    padding-left: 3px;
+}
+
+
+.deleteTab:hover {
+    opacity: 1;
+}
+
+
+.addTab {
     width: 42px;
+    height: 38px;
 
     padding: 0;
 
     font-size: 22px;
 
     background: white;
+
+    cursor: pointer;
 }
 
 
@@ -86,6 +119,7 @@ body {
     margin-top: 15px;
 }
 
+
 h1 {
     margin: 0;
 
@@ -94,6 +128,7 @@ h1 {
 
     letter-spacing: -0.5px;
 }
+
 
 #editTitleButton {
     border: none;
@@ -105,7 +140,10 @@ h1 {
     color: #888;
 
     font-size: 19px;
+
+    cursor: pointer;
 }
+
 
 #listTitleInput {
     width: 80%;
@@ -113,6 +151,7 @@ h1 {
     padding: 4px;
 
     border: none;
+
     border-bottom: 2px solid #596f82;
 
     outline: none;
@@ -157,6 +196,7 @@ h1 {
     margin-bottom: 22px;
 
     border: none;
+
     border-radius: 14px;
 
     background: #596f82;
@@ -167,6 +207,8 @@ h1 {
     font-weight: 600;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
 }
 
 
@@ -255,6 +297,8 @@ label button {
     font-weight: 600;
 
     white-space: nowrap;
+
+    cursor: pointer;
 }
 
 
@@ -271,8 +315,12 @@ label button {
         font-size: 28px;
     }
 
-    #tabs button {
-        padding: 9px 13px;
+    #tabs {
+        gap: 6px;
+    }
+
+    .listTab {
+        padding: 9px 12px;
     }
 
     label {
