@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,55 +11,35 @@
 
     <title>My To-Do Lists</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 
-    <script
-        src="script.js?v=10"
-        defer
-    ></script>
-
+    <script src="script.js" defer></script>
 </head>
-
 
 <body>
 
-
-    <!-- TABS -->
-
+    <!-- LIST TABS -->
     <div id="tabs"></div>
 
 
-    <!-- NEW LIST PANEL -->
-
-    <div
-        id="newListPanel"
-        class="panel hidden"
-    >
+    <!-- NEW LIST BOX -->
+    <div id="newListBox" class="newListBox">
 
         <h2>New List</h2>
 
         <input
-            id="newListInput"
             type="text"
-            placeholder="List name"
+            id="newListName"
+            placeholder="Name your list"
         >
 
-        <div class="panelButtons">
+        <div class="newListButtons">
 
-            <button
-                id="cancelNewList"
-                class="secondaryButton"
-            >
+            <button id="cancelList">
                 Cancel
             </button>
 
-            <button
-                id="createNewList"
-                class="primaryButton"
-            >
+            <button id="createList">
                 Create
             </button>
 
@@ -69,43 +48,12 @@
     </div>
 
 
-    <!-- DELETE LIST PANEL -->
-
-    <div
-        id="deletePanel"
-        class="panel hidden"
-    >
-
-        <h2>Delete List?</h2>
-
-        <p id="deleteMessage"></p>
-
-        <div class="panelButtons">
-
-            <button
-                id="cancelDelete"
-                class="secondaryButton"
-            >
-                Cancel
-            </button>
-
-            <button
-                id="confirmDelete"
-                class="deleteButton"
-            >
-                Delete
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- TITLE -->
-
+    <!-- LIST TITLE -->
     <div id="titleContainer">
 
-        <h1 id="listTitle"></h1>
+        <h1 id="listTitle">
+            My To-Do List
+        </h1>
 
         <button
             id="editTitleButton"
@@ -118,24 +66,19 @@
 
 
     <!-- DATE -->
-
     <p id="date"></p>
 
 
     <!-- ADD TASK -->
-
-    <button
-        id="addTaskButton"
-    >
+    <button id="addTaskButton">
         + Add Task
     </button>
 
 
     <!-- TASKS -->
-
     <div id="taskList"></div>
 
-<script src="script.js"></script>
+
 </body>
 
 </html>
