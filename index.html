@@ -1,49 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>My To-Do Lists</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="./script.js?v=6" defer></script>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <script
+        src="script.js?v=10"
+        defer
+    ></script>
+
 </head>
+
 
 <body>
 
-    <div id="tabs">
 
-        <button class="listTab activeTab">
-            <span>My To-Do List</span>
-            <span class="deleteTab">×</span>
-        </button>
+    <!-- TABS -->
 
-        <button class="addTab">+</button>
+    <div id="tabs"></div>
+
+
+    <!-- NEW LIST PANEL -->
+
+    <div
+        id="newListPanel"
+        class="panel hidden"
+    >
+
+        <h2>New List</h2>
+
+        <input
+            id="newListInput"
+            type="text"
+            placeholder="List name"
+        >
+
+        <div class="panelButtons">
+
+            <button
+                id="cancelNewList"
+                class="secondaryButton"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="createNewList"
+                class="primaryButton"
+            >
+                Create
+            </button>
+
+        </div>
 
     </div>
 
+
+    <!-- DELETE LIST PANEL -->
+
+    <div
+        id="deletePanel"
+        class="panel hidden"
+    >
+
+        <h2>Delete List?</h2>
+
+        <p id="deleteMessage"></p>
+
+        <div class="panelButtons">
+
+            <button
+                id="cancelDelete"
+                class="secondaryButton"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="confirmDelete"
+                class="deleteButton"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
     <div id="titleContainer">
 
-        <h1 id="listTitle">
-            My To-Do List
-        </h1>
+        <h1 id="listTitle"></h1>
 
         <button
             id="editTitleButton"
-            onclick="editListTitle()"
+            aria-label="Rename list"
         >
             ✎
         </button>
 
     </div>
 
+
+    <!-- DATE -->
+
     <p id="date"></p>
+
+
+    <!-- ADD TASK -->
 
     <button
         id="addTaskButton"
-        onclick="addTask()"
     >
         + Add Task
     </button>
 
+
+    <!-- TASKS -->
+
     <div id="taskList"></div>
 
+
 </body>
+
 </html>
