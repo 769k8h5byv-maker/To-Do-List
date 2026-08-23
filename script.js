@@ -44,19 +44,22 @@ function editListTitle() {
 
 function saveListTitle() {
 
-    const input = document.getElementById("listTitleInput");
+    const input =
+        document.getElementById("listTitleInput");
 
     if (!input) {
         return;
     }
 
-    const newTitle = input.value.trim();
+    const newTitle =
+        input.value.trim();
 
     if (newTitle === "") {
         return;
     }
 
-    const title = document.createElement("h1");
+    const title =
+        document.createElement("h1");
 
     title.id = "listTitle";
     title.textContent = newTitle;
@@ -124,7 +127,6 @@ function addTask() {
 
 
     acceptButton.onclick = function() {
-
         acceptTask(this);
     };
 
@@ -139,7 +141,8 @@ function addTask() {
 
 function acceptTask(button) {
 
-    const task = button.parentElement;
+    const task =
+        button.parentElement;
 
     const textBox =
         task.querySelector(".taskText");
@@ -176,7 +179,8 @@ function acceptTask(button) {
 
 function editTask(button) {
 
-    const task = button.parentElement;
+    const task =
+        button.parentElement;
 
     const textBox =
         task.querySelector(".taskText");
@@ -230,16 +234,72 @@ function toggleTask(checkbox) {
 
 
 // -------------------------
-// CREATE NEW TAB
+// NEW LIST PANEL
 // -------------------------
 
-document.querySelector(".addTab").onclick = function() {
+const addTab =
+    document.querySelector(".addTab");
 
-    const name = prompt("Name your new list:");
+const newListPanel =
+    document.getElementById("newListPanel");
 
-    if (!name || name.trim() === "") {
+const newListInput =
+    document.getElementById("newListInput");
+
+const createNewList =
+    document.getElementById("createNewList");
+
+const cancelNewList =
+    document.getElementById("cancelNewList");
+
+
+addTab.onclick = function() {
+
+    newListPanel.classList.add("show");
+
+    newListInput.value = "";
+
+    newListInput.focus();
+};
+
+
+cancelNewList.onclick = function() {
+
+    newListPanel.classList.remove("show");
+};
+
+
+createNewList.onclick = function() {
+
+    createNewListTab();
+};
+
+
+newListInput.onkeydown = function(event) {
+
+    if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        createNewListTab();
+    }
+
+    if (event.key === "Escape") {
+
+        newListPanel.classList.remove("show");
+    }
+};
+
+
+function createNewListTab() {
+
+    const name =
+        newListInput.value.trim();
+
+    if (name === "") {
         return;
     }
+
 
     const newTab =
         document.createElement("button");
@@ -250,8 +310,7 @@ document.querySelector(".addTab").onclick = function() {
     const nameSpan =
         document.createElement("span");
 
-    nameSpan.textContent =
-        name.trim();
+    nameSpan.textContent = name;
 
 
     const deleteButton =
@@ -266,12 +325,7 @@ document.querySelector(".addTab").onclick = function() {
 
         event.stopPropagation();
 
-        const confirmed =
-            confirm('Delete "' + name.trim() + '"?');
-
-        if (confirmed) {
-            newTab.remove();
-        }
+        showDeletePanel(newTab, name);
     };
 
 
@@ -281,7 +335,7 @@ document.querySelector(".addTab").onclick = function() {
 
     newTab.onclick = function() {
 
-        alert("You clicked " + name.trim());
+        alert("You clicked " + name);
     };
 
 
@@ -289,24 +343,79 @@ document.querySelector(".addTab").onclick = function() {
         newTab,
         document.querySelector(".addTab")
     );
+
+
+    newListPanel.classList.remove("show");
+}
+
+
+// -------------------------
+// DELETE LIST PANEL
+// -------------------------
+
+const deletePanel =
+    document.getElementById("deletePanel");
+
+const deleteMessage =
+    document.getElementById("deleteMessage");
+
+const cancelDelete =
+    document.getElementById("cancelDelete");
+
+const confirmDelete =
+    document.getElementById("confirmDelete");
+
+let tabToDelete = null;
+
+
+function showDeletePanel(tab, name) {
+
+    tabToDelete = tab;
+
+    deleteMessage.textContent =
+        'Are you sure you want to delete "' +
+        name +
+        '"?';
+
+    deletePanel.classList.add("show");
+}
+
+
+cancelDelete.onclick = function() {
+
+    deletePanel.classList.remove("show");
+
+    tabToDelete = null;
+};
+
+
+confirmDelete.onclick = function() {
+
+    if (tabToDelete) {
+
+        tabToDelete.remove();
+    }
+
+    deletePanel.classList.remove("show");
+
+    tabToDelete = null;
 };
 
 
 // -------------------------
-// DELETE ORIGINAL TAB
+// ORIGINAL TAB DELETE
 // -------------------------
 
 const firstDelete =
     document.querySelector(".deleteTab");
 
+
 firstDelete.onclick = function(event) {
 
     event.stopPropagation();
 
-    const confirmed =
-        confirm('Delete "My To-Do List"?');
-
-    if (confirmed) {
-        firstDelete.parentElement.remove();
-    }
+    showDeletePanel(
+        firstDelete.parentElement,
+        "My To-Do List"
+    );
 };
