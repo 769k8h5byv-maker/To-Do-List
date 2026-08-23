@@ -22,7 +22,16 @@ function addTask() {
 
     taskList.appendChild(task);
 
-    task.querySelector(".taskText").focus();
+    const textBox = task.querySelector(".taskText");
+
+    textBox.focus();
+
+    textBox.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            acceptTask(task.querySelector("button"));
+        }
+    });
 }
 
 
