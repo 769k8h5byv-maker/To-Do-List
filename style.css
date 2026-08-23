@@ -2,24 +2,13 @@
     box-sizing: border-box;
 }
 
-
 body {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     margin: 0 auto;
-
     max-width: 600px;
-
     min-height: 100vh;
-
     padding: 18px 14px 40px;
-
     background: #f3f1ec;
-
     color: #2f2f2f;
 }
 
@@ -29,112 +18,69 @@ body {
 ========================= */
 
 #tabs {
-
     display: flex;
-
     gap: 8px;
-
     overflow-x: auto;
-
     padding: 5px 2px 14px;
-
     scrollbar-width: none;
 }
-
 
 #tabs::-webkit-scrollbar {
     display: none;
 }
 
-
 .listTab,
 .addTab {
-
     flex-shrink: 0;
-
     border: none;
-
     border-radius: 20px;
-
     font-size: 14px;
-
     font-weight: 600;
-
     white-space: nowrap;
-
     cursor: pointer;
-
 }
-
 
 .listTab {
-
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     padding: 10px 14px;
-
     background: #e2dfd8;
-
     color: #666;
-
 }
-
 
 .listTab.activeTab {
-
     background: #596f82;
-
     color: white;
-
 }
-
 
 .deleteTab {
-
     font-size: 17px;
-
     font-weight: 400;
-
     opacity: 0.55;
-
     padding-left: 2px;
-
 }
-
 
 .deleteTab:hover {
-
     opacity: 1;
-
 }
 
-
 .addTab {
-
     width: 42px;
-
     height: 38px;
-
     padding: 0;
-
     font-size: 22px;
-
     background: white;
-
     color: #596f82;
-
 }
 
 
 /* =========================
-   PANELS
+   NEW LIST BOX
 ========================= */
 
-.panel {
+.newListBox {
+    display: none;
 
     background: white;
 
@@ -144,42 +90,22 @@ body {
 
     border-radius: 18px;
 
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.10);
-
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
 }
 
-
-.hidden {
-    display: none;
+.newListBox.show {
+    display: block;
 }
 
-
-.panel h2 {
-
+.newListBox h2 {
     margin: 0 0 14px;
-
-    font-size: 20px;
-
+    font-size: 21px;
 }
 
-
-.panel p {
-
-    color: #666;
-
-    line-height: 1.45;
-
-    margin: 0 0 18px;
-
-}
-
-
-#newListInput {
-
+#newListName {
     width: 100%;
 
-    padding: 13px;
+    padding: 13px 14px;
 
     border: 1px solid #ddd;
 
@@ -191,68 +117,38 @@ body {
 
     font-size: 16px;
 
+    color: #333;
 }
 
-
-#newListInput:focus {
-
+#newListName:focus {
     border-color: #596f82;
-
+    box-shadow: 0 0 0 3px rgba(89, 111, 130, 0.10);
 }
 
-
-.panelButtons {
-
+.newListButtons {
     display: flex;
-
     justify-content: flex-end;
-
     gap: 8px;
-
-    margin-top: 16px;
-
+    margin-top: 14px;
 }
 
-
-.panelButtons button {
-
+.newListButtons button {
     border: none;
-
     border-radius: 10px;
-
-    padding: 10px 15px;
-
+    padding: 10px 16px;
     font-size: 14px;
-
     font-weight: 600;
-
+    cursor: pointer;
 }
 
-
-.secondaryButton {
-
+#cancelList {
     background: #eee;
-
     color: #555;
-
 }
 
-
-.primaryButton {
-
+#createList {
     background: #596f82;
-
     color: white;
-
-}
-
-
-.deleteButton {
-
-    background: #b65c5c;
-
-    color: white;
-
 }
 
 
@@ -261,72 +157,40 @@ body {
 ========================= */
 
 #titleContainer {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 6px;
-
     margin-top: 14px;
-
 }
-
 
 h1 {
-
     margin: 0;
-
     font-size: 32px;
-
     font-weight: 700;
-
     letter-spacing: -0.5px;
-
 }
-
 
 #editTitleButton {
-
     border: none;
-
     background: transparent;
-
     color: #888;
-
     font-size: 19px;
-
     padding: 5px;
-
     cursor: pointer;
-
 }
 
-
 #listTitleInput {
-
     width: 80%;
-
     padding: 4px;
-
     border: none;
-
     border-bottom: 2px solid #596f82;
-
     outline: none;
-
     background: transparent;
-
     font-family: inherit;
-
     font-size: 32px;
-
     font-weight: 700;
-
     text-align: center;
-
 }
 
 
@@ -335,15 +199,10 @@ h1 {
 ========================= */
 
 #date {
-
     text-align: center;
-
     color: #888;
-
     font-size: 15px;
-
     margin: 6px 0 25px;
-
 }
 
 
@@ -352,60 +211,47 @@ h1 {
 ========================= */
 
 #addTaskButton {
-
     display: block;
-
     width: 100%;
-
     padding: 15px;
-
     margin-bottom: 22px;
 
     border: none;
-
     border-radius: 14px;
 
     background: #596f82;
-
     color: white;
 
     font-size: 17px;
-
     font-weight: 600;
 
-    box-shadow:
-        0 4px 10px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 
     cursor: pointer;
-
 }
 
 
 /* =========================
-   TASKS
+   TASK LIST
 ========================= */
 
 #taskList {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
-
 }
 
 
-.taskCard {
+/* =========================
+   TASK CARD
+========================= */
 
+label {
     display: flex;
-
     align-items: center;
-
     gap: 9px;
 
     width: 100%;
-
     min-height: 64px;
 
     padding: 12px;
@@ -414,79 +260,65 @@ h1 {
 
     border-radius: 16px;
 
-    box-shadow:
-        0 3px 10px rgba(0,0,0,0.07);
-
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
 }
 
 
-.taskCheck {
+/* =========================
+   CHECKBOX
+========================= */
 
+input[type="checkbox"] {
     width: 22px;
-
     height: 22px;
-
     flex-shrink: 0;
-
 }
 
+
+/* =========================
+   TASK TEXT
+========================= */
 
 .taskText {
-
     flex: 1;
-
     min-width: 0;
 
     border: none;
-
     outline: none;
 
     background: transparent;
 
-    font-family: inherit;
-
     font-size: 17px;
-
     color: #333;
-
 }
 
 
-.taskAction,
-.deleteTask {
+/* =========================
+   TASK BUTTONS
+========================= */
 
+label button {
     border: none;
-
     border-radius: 9px;
 
     padding: 8px 9px;
 
     font-size: 12px;
-
     font-weight: 600;
 
     white-space: nowrap;
 
     cursor: pointer;
-
 }
-
 
 .taskAction {
-
     background: #eee;
-
     color: #555;
-
 }
 
-
 .deleteTask {
-
     background: #f0dddd;
-
     color: #9b4d4d;
-
 }
 
 
@@ -497,62 +329,32 @@ h1 {
 @media (max-width: 400px) {
 
     body {
-
-        padding:
-            14px
-            10px
-            30px;
-
+        padding: 14px 10px 30px;
     }
-
 
     h1,
     #listTitleInput {
-
         font-size: 28px;
-
     }
-
 
     #tabs {
-
         gap: 6px;
-
     }
-
 
     .listTab {
-
-        padding:
-            9px
-            12px;
-
+        padding: 9px 12px;
     }
 
-
-    .taskCard {
-
+    label {
         padding: 10px;
-
         gap: 7px;
-
     }
-
 
     .taskText {
-
         font-size: 16px;
-
     }
 
-
-    .taskAction,
-    .deleteTask {
-
-        padding:
-            8px
-            7px;
-
+    label button {
+        padding: 8px 7px;
     }
-
 }
