@@ -1,141 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
+let lists = [
+    {
+        id: 1,
+        name: "My To-Do List",
+        tasks: []
+    }
+];
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>My To-Do Lists</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <script
-        src="script.js?v=10"
-        defer
-    ></script>
-
-</head>
+let currentListId = 1;
 
 
-<body>
+// SHOW TABS
+function renderTabs() {
+
+    const tabs = document.getElementById("tabs");
+
+    tabs.innerHTML = "";
+
+    lists.forEach(function(list) {
+
+        const tab = document.createElement("button");
+
+        tab.className = "listTab";
+
+        if (list.id === currentListId) {
+            tab.classList.add("activeTab");
+        }
+
+        const name = document.createElement("span");
+
+        name.textContent = list.name;
 
 
-    <!-- TABS -->
+        const x = document.createElement("span");
 
-    <div id="tabs"></div>
+        x.textContent = "×";
 
-
-    <!-- NEW LIST PANEL -->
-
-    <div
-        id="newListPanel"
-        class="panel hidden"
-    >
-
-        <h2>New List</h2>
-
-        <input
-            id="newListInput"
-            type="text"
-            placeholder="List name"
-        >
-
-        <div class="panelButtons">
-
-            <button
-                id="cancelNewList"
-                class="secondaryButton"
-            >
-                Cancel
-            </button>
-
-            <button
-                id="createNewList"
-                class="primaryButton"
-            >
-                Create
-            </button>
-
-        </div>
-
-    </div>
+        x.className = "deleteTab";
 
 
-    <!-- DELETE LIST PANEL -->
+        x.onclick = function(event) {
 
-    <div
-        id="deletePanel"
-        class="panel hidden"
-    >
+            event.stopPropagation();
 
-        <h2>Delete List?</h2>
+            if (lists.length === 1) {
+                return;
+            }
 
-        <p id="deleteMessage"></p>
+            lists = lists.filter(function(item) {
+                return item.id !== list.id;
+            });
 
-        <div class="panelButtons">
+            currentListId = lists[0].id;
 
-            <button
-                id="cancelDelete"
-                class="secondaryButton"
-            >
-                Cancel
-            </button>
-
-            <button
-                id="confirmDelete"
-                class="deleteButton"
-            >
-                Delete
-            </button>
-
-        </div>
-
-    </div>
+            renderTabs();
+        };
 
 
-    <!-- TITLE -->
+        tab.appendChild(name);
 
-    <div id="titleContainer">
-
-        <h1 id="listTitle"></h1>
-
-        <button
-            id="editTitleButton"
-            aria-label="Rename list"
-        >
-            ✎
-        </button>
-
-    </div>
+        tab.appendChild(x);
 
 
-    <!-- DATE -->
+        tab.onclick = function() {
 
-    <p id="date"></p>
+            currentListId = list.id;
 
+            renderTabs();
 
-    <!-- ADD TASK -->
-
-    <button
-        id="addTaskButton"
-    >
-        + Add Task
-    </button>
+            document.getElementById("listTitle").textContent =
+                list.name;
+        };
 
 
-    <!-- TASKS -->
+        tabs.appendChild(tab);
 
-    <div id="taskList"></div>
+    });
 
 
-</body>
+    const addButton =
+        document.createElement("button");
 
-</html>
+    addButton.className = "addTab";
+
+    addButton.textContent = "+";
+
+
+    addButton.onclick = function() {
+
+        const name =
+            prompt("Name your new list:");
+
+        if (!name || name.trim() === "") {
+            return;
+        }
+
+
+        const newList = {
+
+            id: Date.now(),
+
+            name: name.trim(),
+
+            tasks: []
+
+        };
+
+
+        lists.push(newList);
+
+        currentListId = newList.id;
+
+        renderTabs();
+
+        document.getElementById("listTitle").textContent =
+            newList.name;
+
+    };
+
+
+    tabs.appendChild(addButton);
+}
+
+
+// DATE
+
+const today = new Date();
+
+document.getElementById("date").textContent =
+    today.toLocaleDateString("en-CA", {
+
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+
+    });
+
+
+// START
+
+renderTabs();
+
+document.getElementById("listTitle").textContent =
+    "My To-Do List";
