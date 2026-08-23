@@ -4,78 +4,163 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
     margin: 0 auto;
     max-width: 600px;
     min-height: 100vh;
-    padding: 30px 18px;
+
+    padding: 18px 14px 40px;
+
     background: #f3f1ec;
     color: #2f2f2f;
 }
 
 
-/* TITLE */
+/* -------------------------
+   TABS
+------------------------- */
+
+#tabs {
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding: 5px 2px 12px;
+
+    scrollbar-width: none;
+}
+
+#tabs::-webkit-scrollbar {
+    display: none;
+}
+
+#tabs button {
+    flex-shrink: 0;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 20px;
+
+    background: #e2dfd8;
+
+    color: #666;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+#tabs button.activeTab {
+    background: #596f82;
+    color: white;
+}
+
+#tabs button.addTab {
+    width: 42px;
+
+    padding: 0;
+
+    font-size: 22px;
+
+    background: white;
+}
+
+
+/* -------------------------
+   TITLE
+------------------------- */
 
 #titleContainer {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 6px;
-    margin-top: 20px;
+
+    margin-top: 15px;
 }
 
 h1 {
     margin: 0;
+
     font-size: 32px;
     font-weight: 700;
+
     letter-spacing: -0.5px;
 }
 
 #editTitleButton {
-    background: transparent;
     border: none;
+
+    background: transparent;
+
     padding: 5px;
-    font-size: 19px;
+
     color: #888;
-    cursor: pointer;
+
+    font-size: 19px;
 }
 
 #listTitleInput {
     width: 80%;
+
     padding: 4px;
+
     border: none;
     border-bottom: 2px solid #596f82;
+
     outline: none;
+
     background: transparent;
 
     font-family: inherit;
+
     font-size: 32px;
     font-weight: 700;
+
     text-align: center;
 }
 
 
-/* DATE */
+/* -------------------------
+   DATE
+------------------------- */
 
 #date {
     text-align: center;
+
     color: #888;
+
     font-size: 15px;
-    margin: 6px 0 30px;
+
+    margin: 6px 0 25px;
 }
 
 
-/* ADD TASK */
+/* -------------------------
+   ADD TASK
+------------------------- */
 
 #addTaskButton {
     display: block;
+
     width: 100%;
+
     padding: 15px;
-    margin-bottom: 25px;
+
+    margin-bottom: 22px;
 
     border: none;
     border-radius: 14px;
 
     background: #596f82;
+
     color: white;
 
     font-size: 17px;
@@ -85,28 +170,38 @@ h1 {
 }
 
 
-/* TASK LIST */
+/* -------------------------
+   TASK LIST
+------------------------- */
 
 #taskList {
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
 }
 
 
-/* TASK CARD */
+/* -------------------------
+   TASK CARD
+------------------------- */
 
 label {
     display: flex;
+
     align-items: center;
-    gap: 10px;
+
+    gap: 9px;
 
     width: 100%;
+
     min-height: 64px;
 
-    padding: 12px 14px;
+    padding: 12px;
 
     background: white;
+
     border-radius: 16px;
 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
@@ -118,6 +213,7 @@ label {
 input[type="checkbox"] {
     width: 22px;
     height: 22px;
+
     flex-shrink: 0;
 }
 
@@ -126,13 +222,17 @@ input[type="checkbox"] {
 
 .taskText {
     flex: 1;
+
     min-width: 0;
 
     border: none;
+
     outline: none;
+
     background: transparent;
 
     font-size: 17px;
+
     color: #333;
 }
 
@@ -141,24 +241,20 @@ input[type="checkbox"] {
 
 label button {
     border: none;
+
     border-radius: 9px;
 
-    padding: 8px 10px;
+    padding: 8px 9px;
 
     background: #eee;
+
     color: #555;
 
-    font-size: 13px;
+    font-size: 12px;
+
     font-weight: 600;
 
     white-space: nowrap;
-}
-
-
-/* COMPLETED TASK */
-
-label:has(input[type="checkbox"]:checked) {
-    opacity: 0.65;
 }
 
 
@@ -167,7 +263,7 @@ label:has(input[type="checkbox"]:checked) {
 @media (max-width: 400px) {
 
     body {
-        padding: 22px 14px;
+        padding: 14px 10px 30px;
     }
 
     h1,
@@ -175,9 +271,14 @@ label:has(input[type="checkbox"]:checked) {
         font-size: 28px;
     }
 
+    #tabs button {
+        padding: 9px 13px;
+    }
+
     label {
-        padding: 11px;
-        gap: 8px;
+        padding: 10px;
+
+        gap: 7px;
     }
 
     .taskText {
@@ -185,7 +286,6 @@ label:has(input[type="checkbox"]:checked) {
     }
 
     label button {
-        padding: 8px;
-        font-size: 12px;
+        padding: 8px 7px;
     }
 }
