@@ -16,9 +16,7 @@ body {
 }
 
 
-/* -------------------------
-   TABS
-------------------------- */
+/* TABS */
 
 #tabs {
     display: flex;
@@ -75,6 +73,7 @@ body {
 
 .deleteTab {
     font-size: 17px;
+
     font-weight: normal;
 
     opacity: 0.6;
@@ -104,14 +103,130 @@ body {
 }
 
 
-/* -------------------------
-   TITLE
-------------------------- */
+/* POPUP PANELS */
+
+.popupPanel {
+    display: none;
+
+    background: white;
+
+    padding: 20px;
+
+    margin: 5px 0 20px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.popupPanel.show {
+    display: block;
+
+    animation: slideDown 0.18s ease-out;
+}
+
+
+@keyframes slideDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.popupPanel h3 {
+    margin: 0 0 12px;
+
+    font-size: 20px;
+}
+
+
+.popupPanel p {
+    margin: 0 0 18px;
+
+    color: #666;
+
+    line-height: 1.4;
+}
+
+
+#newListInput {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 16px;
+}
+
+
+#newListInput:focus {
+    border-color: #596f82;
+}
+
+
+.popupButtons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+
+.popupButtons button {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 10px 15px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+#cancelNewList,
+#cancelDelete {
+    background: #eee;
+
+    color: #555;
+}
+
+
+#createNewList,
+#confirmDelete {
+    background: #596f82;
+
+    color: white;
+}
+
+
+/* TITLE */
 
 #titleContainer {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 6px;
@@ -124,6 +239,7 @@ h1 {
     margin: 0;
 
     font-size: 32px;
+
     font-weight: 700;
 
     letter-spacing: -0.5px;
@@ -161,15 +277,14 @@ h1 {
     font-family: inherit;
 
     font-size: 32px;
+
     font-weight: 700;
 
     text-align: center;
 }
 
 
-/* -------------------------
-   DATE
-------------------------- */
+/* DATE */
 
 #date {
     text-align: center;
@@ -182,9 +297,7 @@ h1 {
 }
 
 
-/* -------------------------
-   ADD TASK
-------------------------- */
+/* ADD TASK */
 
 #addTaskButton {
     display: block;
@@ -204,17 +317,14 @@ h1 {
     color: white;
 
     font-size: 17px;
+
     font-weight: 600;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-
-    cursor: pointer;
 }
 
 
-/* -------------------------
-   TASK LIST
-------------------------- */
+/* TASK LIST */
 
 #taskList {
     display: flex;
@@ -225,9 +335,7 @@ h1 {
 }
 
 
-/* -------------------------
-   TASK CARD
-------------------------- */
+/* TASK CARD */
 
 label {
     display: flex;
@@ -254,6 +362,7 @@ label {
 
 input[type="checkbox"] {
     width: 22px;
+
     height: 22px;
 
     flex-shrink: 0;
@@ -297,8 +406,6 @@ label button {
     font-weight: 600;
 
     white-space: nowrap;
-
-    cursor: pointer;
 }
 
 
@@ -335,5 +442,9 @@ label button {
 
     label button {
         padding: 8px 7px;
+    }
+
+    .popupPanel {
+        padding: 17px;
     }
 }
