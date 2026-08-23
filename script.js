@@ -146,11 +146,19 @@ function renderTabs() {
     addTab.textContent = "+";
 
 
-    addTab.onclick = function() {
+ addTab.onclick = function() {
 
-        openNewListBox();
+    const box = document.getElementById("newListBox");
 
-    };
+    const input = document.getElementById("newListName");
+
+    box.style.display = "block";
+
+    input.value = "";
+
+    input.focus();
+
+};
 
 
     tabs.appendChild(addTab);
