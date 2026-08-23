@@ -483,6 +483,8 @@ function createSavedTask(savedTask) {
 // START
 // -------------------------
 
+alert("SCRIPT IS WORKING");
+
 displayTabs();
 
 displayCurrentList();
