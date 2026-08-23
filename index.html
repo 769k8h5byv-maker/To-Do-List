@@ -2,22 +2,20 @@
 <html>
 <head>
     <title>My To-Do List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     <script src="script.js"></script>
 </head>
 
 <body>
 
-    <input 
-        type="text" 
-        id="listTitle" 
-        value="My To-Do List"
-        onkeydown="if (event.key === 'Enter') { this.blur(); }"
-    >
+    <div id="titleContainer">
+        <h1 id="listTitle">My To-Do List</h1>
+        <button id="editTitleButton" onclick="editListTitle()">✎</button>
+    </div>
 
     <p id="date"></p>
 
-    <button onclick="addTask()">+ Add Task</button>
+    <button id="addTaskButton" onclick="addTask()">+ Add Task</button>
 
     <div id="taskList"></div>
 
