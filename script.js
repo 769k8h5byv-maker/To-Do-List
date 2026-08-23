@@ -85,43 +85,34 @@ function renderTabs() {
     addButton.textContent = "+";
 
 
-    addButton.onclick = function() {
-
-        const name =
-            prompt("Name your new list:");
-
-        if (!name || name.trim() === "") {
-            return;
-        }
-
-
-        const newList = {
-
-            id: Date.now(),
-
-            name: name.trim(),
-
-            tasks: []
-
-        };
-
-
-        lists.push(newList);
-
-        currentListId = newList.id;
-
-        renderTabs();
-
-        document.getElementById("listTitle").textContent =
-            newList.name;
-
-    };
-
+  
 
     tabs.appendChild(addButton);
 }
 
+addButton.onclick = function() {
 
+    const name = window.prompt("Name your new list:");
+
+    if (!name || name.trim() === "") {
+        return;
+    }
+
+    const newList = {
+        id: Date.now(),
+        name: name.trim(),
+        tasks: []
+    };
+
+    lists.push(newList);
+
+    currentListId = newList.id;
+
+    renderTabs();
+
+    document.getElementById("listTitle").textContent =
+        newList.name;
+};
 // DATE
 
 const today = new Date();
