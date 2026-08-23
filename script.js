@@ -8,11 +8,14 @@ document.querySelector(".addTab").onclick = function() {
 
     const newTab = document.createElement("button");
 
-    newTab.textContent = name.trim();
+newTab.textContent = name.trim() + "  ×";
 
-    newTab.onclick = function() {
+newTab.onclick = function(event) {
+
+    if (event.target === newTab) {
         alert("You clicked " + name.trim());
-    };
+    }
+};
 
     document.getElementById("tabs").insertBefore(
         newTab,
